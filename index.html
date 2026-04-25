@@ -7,16 +7,29 @@
 </head>
 <body>
 
-<div id="loadingScreen">
-  Please wait, the Pokédex is receiving all available Pokémon data...
-</div>
+<div id="loadingScreen">Please wait, the Pokédex is loading...</div>
 
 <div id="menuScreen" class="centered hidden">
   <h1>Pokémon Guessing Game</h1>
 
   <label><input type="checkbox" id="hardMode"> Hard Mode (2x Score)</label>
 
-  <h3>Practice Generations</h3>
+  <br>
+
+  <button onclick="openPracticeSetup()">Practice</button>
+  <button onclick="startGame('daily')">Daily</button>
+  <button onclick="openCollection()">Collection</button>
+  <button onclick="showLeaderboard()">Leaderboard</button>
+
+  <br><br>
+
+  <button class="musicBtn" onclick="toggleMusic()">Music</button>
+  <button class="sfxBtn" onclick="toggleSFX()">SFX</button>
+</div>
+
+<div id="practiceSetupScreen" class="centered hidden">
+  <h2>Select Generations</h2>
+
   <div id="genFilters">
     <label><input type="checkbox" value="1" checked> Gen1</label>
     <label><input type="checkbox" value="2" checked> Gen2</label>
@@ -31,15 +44,8 @@
 
   <br>
 
-  <button onclick="startGame('practice')">Practice Mode</button>
-  <button onclick="startGame('daily')">Daily Mode</button>
-  <button onclick="openCollection()">Collection</button>
-  <button onclick="showLeaderboard()">Leaderboard</button>
-
-  <br><br>
-
-  <button id="musicBtn" onclick="toggleMusic()">Music</button>
-  <button id="sfxBtn" onclick="toggleSFX(true)">SFX</button>
+  <button id="startPracticeBtn" onclick="confirmPracticeStart()">Start Practice</button>
+  <button onclick="backToMenuFromPractice()">⬅ Back</button>
 </div>
 
 <div id="gameScreen" class="card hidden">
@@ -53,6 +59,9 @@
 
   <img id="pokemonImage">
 
+  <!-- Poké Ball -->
+  <div id="pokeball"></div>
+
   <div id="info"></div>
 
   <input list="pokemonList" id="guessInput">
@@ -62,8 +71,8 @@
   <button onclick="giveHint()">Hint</button>
   <button onclick="nextPokemon()">Skip</button>
 
-  <button onclick="toggleMusic()">Music</button>
-  <button onclick="toggleSFX()">SFX</button>
+  <button class="musicBtn" onclick="toggleMusic()">Music</button>
+  <button class="sfxBtn" onclick="toggleSFX()">SFX</button>
 
   <p id="result"></p>
 </div>

@@ -58,6 +58,10 @@ button.muted {
 .hidden {
   display: none;
 }
+#startPracticeBtn:disabled {
+  background: #555;
+  color: #999;
+}
 
 /* ========================= */
 /* COLLECTION SCREEN */
@@ -136,3 +140,63 @@ button.muted {
   border-radius: 10px;
   z-index: 200;
 }
+/* SHAKE */
+@keyframes shake {
+  0% { transform: translate(0); }
+  25% { transform: translate(5px); }
+  50% { transform: translate(-5px); }
+  75% { transform: translate(5px); }
+  100% { transform: translate(0); }
+}
+
+.shake {
+  animation: shake 0.4s;
+}
+
+/* ✨ SPARKLE */
+@keyframes sparkle {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(2) drop-shadow(0 0 10px gold); }
+  100% { filter: brightness(1); }
+}
+
+.sparkle {
+  animation: sparkle 0.5s infinite;
+}
+/* POKEBALL */
+#pokeball {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: red;
+  border-radius: 50%;
+  top: 40%;
+  left: -60px;
+  display: none;
+}
+
+/* THROW */
+@keyframes throw {
+  0% { left: -60px; }
+  100% { left: 50%; }
+}
+
+/* WOBBLE */
+@keyframes wobble {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+/* FLASH */
+@keyframes captureFlash {
+  0% { background: transparent; }
+  50% { background: white; }
+  100% { background: transparent; }
+}
+
+.throw { animation: throw 0.4s forwards; }
+.wobble { animation: wobble 0.6s; }
+.flash { animation: captureFlash 0.3s; }
